@@ -1,0 +1,172 @@
+{
+  "name": "intersystems-iris",
+  "description": "InterSystems IRIS Management",
+  "author": "daimor",
+  "license": "MIT",
+  "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/daimor/vscode-intersystems-iris"
+  },
+  "publisher": "daimor",
+  "categories": [],
+  "keywords": [
+    "intersystems"
+  ],
+  "engines": {
+    "vscode": "^1.52.0"
+  },
+  "activationEvents": [
+    "*",
+    "onView:ObjectScriptExplorer"
+  ],
+  "main": "./client/out/extension",
+  "contributes": {
+    "views": {
+      "ObjectScriptView": [
+        {
+          "id": "intersystems-interoperability",
+          "name": "Interoperability",
+          "visibility": "collapsed"
+        },
+        {
+          "id": "intersystems-analytics",
+          "name": "Analytics",
+          "when": "false",
+          "visibility": "collapsed"
+        },
+        {
+          "id": "intersystems-system-explorer",
+          "name": "System Explorer",
+          "visibility": "collapsed"
+        }
+      ]
+    },
+    "configuration": {
+      "properties": {
+        "objectscript.conn.superPort": {
+          "type": "integer",
+          "description": "TCP port number the super server listens on.",
+          "minimum": 1,
+          "maximum": 65535,
+          "scope": "resource"
+        }
+      }
+    },
+    "menus": {
+      "commandPalette": [
+        {
+          "command": "intersystems.productions.refresh",
+          "when": "false"
+        },
+        {
+          "command": "intersystems.globals.refresh",
+          "when": "false"
+        },
+        {
+          "command": "intersystems.globals.export",
+          "when": "false"
+        },
+        {
+          "command": "intersystems.productions.open",
+          "when": "false"
+        },
+        {
+          "command": "intersystems.productions.export",
+          "when": "false"
+        }
+      ],
+      "view/title": [
+        {
+          "command": "intersystems.productions.refresh",
+          "when": "view == intersystems-interoperability",
+          "group": "navigation"
+        },
+        {
+          "command": "intersystems.globals.refresh",
+          "when": "view == intersystems-system-explorer",
+          "group": "navigation"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "intersystems.productions.start",
+          "when": "viewItem =~ /^production:Stopped.*$/",
+          "group": "inline"
+        },
+        {
+          "command": "intersystems.productions.restart",
+          "when": "false",
+          "group": "inline"
+        },
+        {
+          "command": "intersystems.productions.stop",
+          "when": "viewItem =~ /^production(?!:Stopped).*$/",
+          "group": "inline"
+        },
+        {
+          "command": "intersystems.productions.export",
+          "when": "viewItem =~ /^production/"
+        },
+        {
+          "command": "intersystems.globals.export",
+          "when": "viewItem =~ /^global/"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "intersystems.productions.refresh",
+        "title": "Refresh",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "intersystems.globals.refresh",
+        "title": "Refresh",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "intersystems.globals.export",
+        "title": "Export"
+      },
+      {
+        "command": "intersystems.productions.restart",
+        "title": "Restart",
+        "icon": "$(debug-restart)"
+      },
+      {
+        "command": "intersystems.productions.stop",
+        "title": "Stop",
+        "icon": "$(debug-stop)"
+      },
+      {
+        "command": "intersystems.productions.start",
+        "title": "Start",
+        "icon": "$(debug-start)"
+      },
+      {
+        "command": "intersystems.productions.open",
+        "title": "Open"
+      },
+      {
+        "command": "intersystems.productions.export",
+        "title": "Export"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -b",
+    "watch": "tsc -b -w",
+    "postinstall": "cd client && npm install && cd ..",
+    "test": "sh ./scripts/e2e.sh"
+  },
+  "devDependencies": {
+    "@types/mocha": "^7.0.2",
+    "@types/node": "^12.12.0",
+    "@typescript-eslint/parser": "^2.3.0",
+    "eslint": "^6.4.0",
+    "mocha": "^8.3.0",
+    "typescript": "^3.9.4"
+  }
+}

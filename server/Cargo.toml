@@ -1,0 +1,58 @@
+[package]
+authors = [
+  "Dmitry Maslennikov <mrdaimor@gmail.com>",
+]
+edition = "2018"
+name = "iris-ls"
+version = "0.1.0"
+
+[features]
+default = [
+  "server",
+  "test",
+]
+server = [
+  "bytes",
+  "jsonrpc",
+  "jsonrpc-derive",
+  "nom",
+  "tokio-util/codec",
+]
+test = [
+  "server",
+  "aovec",
+]
+
+[[bin]]
+name = "iris-ls"
+required-features = ["server"]
+
+[[test]]
+name = "integration"
+required-features = ["test"]
+
+[dependencies]
+aovec = {version = "1.1", optional = true}
+async-trait = "0.1"
+bytes = {version = "0.5", optional = true}
+cfg-if = "0.1"
+chashmap = "2.2"
+fern = "0.6"
+futures = "0.3"
+# jsonrpc = {version = "0.12.0", optional = true }
+# jsonrpc-derive = {version = "17.0.0", optional = true }
+jsonrpc = {path = "crates/jsonrpc", optional = true}
+jsonrpc-derive = {path = "crates/jsonrpc_derive", optional = true}
+log = "0.4"
+lsp-types = {version = "0.74.1"}
+nom = {version = "6.0", optional = true}
+once_cell = "1.4"
+serde = {version = "1.0", features = ["derive", "rc"]}
+serde_json = "1.0"
+serde_repr = "0.1"
+structopt = "0.3"
+tokio = {version = "0.2", features = ["fs", "io-std", "macros", "process", "rt-core", "time"]}
+tokio-util = {version = "0.3", optional = true}
+url = "2.2"
+uuid = {version = "0.8", features = ["v4"]}
+irisnative = {path = "../../rust-irisnative"}

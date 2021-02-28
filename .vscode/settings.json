@@ -1,0 +1,14 @@
+{
+	"editor.insertSpaces": false,
+	"tslint.enable": true,
+	"typescript.tsc.autoDetect": "off",
+	"typescript.preferences.quoteStyle": "single",
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": true
+	},
+	"objectscript.conn": {
+		"server": "default~iris",
+		"ns": "%SYS",
+		"active": true
+	}
+}
