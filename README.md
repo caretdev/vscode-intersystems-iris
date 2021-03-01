@@ -32,3 +32,8 @@ The extension does not reequire VSCode-ObjectScript extension, but uses some of 
 ## Extension in action
 
 ![example](https://raw.githubusercontent.com/daimor/vscode-intersystems-iris/main/images/screenshot.png)
+
+The extension adds two more views:
+
+- Interoperability, access to Productions and their statuses with all the items.
+- System Explorer, with the list of globals in the namespace.
