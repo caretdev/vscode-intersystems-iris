@@ -4,6 +4,13 @@
 
 This extension uses LanguageServer to communicate directly with InterSystems IRIS over SuperPort (1972). LanguageServer is written on Rust and utilizes Rust irisnative library. The extension does not use Atelier API.
 
+## Installation
+
+At the moment only macOS version is available for installation. In the future more platforms will be available, including windows and linux on ARM64.
+
+- Download the latest version of vsix file from [releases](https://github.com/daimor/vscode-intersystems-iris/releases)
+- Install the file with drag-n-drop to Extensions view in VSCode, or by command `Install from VSIX...`
+
 ## Configuration
 
 The extension does not reequire VSCode-ObjectScript extension, but uses some of the settings it provides. In addition to `objectscript.conn` settings, the extension requires setting `objectscript.conn.superPort` to be set. Example of desired settings.

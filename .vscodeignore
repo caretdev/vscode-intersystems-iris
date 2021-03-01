@@ -13,4 +13,9 @@ client/node_modules/**
 !client/node_modules/vscode-languageserver-types/**
 !client/node_modules/semver/**
 server/**
-!server/target/iris-ls*
+server/iris-ls
+server/iris-ls.exe
+target
+!target/release/iris-ls
+!target/release/iris-ls.exe
+/scripts
