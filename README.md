@@ -6,9 +6,7 @@ This extension uses LanguageServer to communicate directly with InterSystems IRI
 
 ## Installation
 
-At the moment only macOS version is available for installation. In the future more platforms will be available, including windows and linux on ARM64.
-
-- Download the latest version of vsix file from [releases](https://github.com/daimor/vscode-intersystems-iris/releases)
+- Download the latest version of vsix file from [releases](https://github.com/daimor/vscode-intersystems-iris/releases) for your platform
 - Install the file with drag-n-drop to Extensions view in VSCode, or by command `Install from VSIX...`
 
 ## Configuration

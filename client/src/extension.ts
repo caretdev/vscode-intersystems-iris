@@ -15,7 +15,7 @@ import { InterSystemsLanguageClient } from './client';
 export function activate(context: vscode.ExtensionContext) {
   const serverConfig = vscode.workspace.getConfiguration('objectscript.server');
   const serverName = os.platform() === 'win32' ? 'iris-ls.exe' : 'iris-ls';
-  const localServerPath = context.asAbsolutePath(`target/debug/${serverName}`);
+  const localServerPath = context.asAbsolutePath(`target/release/${serverName}`);
   const serverCommand = localServerPath;
 
   const serverOptions = getServerOptions(serverCommand, serverConfig);
@@ -58,12 +58,12 @@ function getServerOptions(
   serverConfig: vscode.WorkspaceConfiguration,
 ): ServerOptions {
   const trace = serverConfig.get<boolean>('trace');
-  // const logFilePath = serverConfig.get<string | undefined>('logFile');
+  const logFilePath = serverConfig.get<string | undefined>('logFile');
   const args = [];
   if (trace) {
     args.push('-vvvv');
   }
-  const logFilePath = "/Users/daimor/Projects/vscode-globals/server.log";
+
   if (logFilePath) {
     args.push('--log-file');
     args.push(logFilePath);
