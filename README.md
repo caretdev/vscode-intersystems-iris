@@ -2,7 +2,7 @@
 
 ## Key Features
 
-This extension uses LanguageServer to communicate directly with InterSystems IRIS over SuperPort (1972). LanguageServer is written on Rust and utilizes [Rust irisnative](#rust-iris-native-driver) library. The extension does not use Atelier API.
+This extension uses LanguageServer to communicate directly with InterSystems IRIS over SuperPort (1972). LanguageServer is written on Rust and utilizes [Rust irisnative](https://github.com/daimor/vscode-intersystems-iris#rust-iris-native-driver) library. The extension does not use Atelier API.
 
 ## Installation
 
